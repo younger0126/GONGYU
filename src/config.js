@@ -4,7 +4,7 @@ export const CONFIG = {
   // 部署 GAS Web App 後，把 /exec 網址貼在這裡。
   // 例如：
   // API_URL: 'https://script.google.com/macros/s/XXXX/exec'
-  API_URL: '',
+  API_URL: 'https://script.google.com/macros/s/AKfycby0W9RQm2WLMiy0bk4CHySXlu6jFdMKH3bwEY7oS_goJ4_Ma6JQ1l3BuHgBtrYDwuTh/exec',
 
   APP_VERSION: '0.1.0-sprint1'
 }
