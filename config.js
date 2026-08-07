@@ -1,5 +1,5 @@
 window.GAME_CONFIG = {
-  LIFF_ID: '2011020275-gl2HOIoL',
+  LIFF_ID: '2011020275-VsOMlBis',
 
   // 這裡之後貼你的 GAS API /exec 網址
   API_URL: '',
