@@ -1,60 +1,15 @@
-
 <!doctype html>
 <html lang="zh-Hant">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>THE HEROES LIFF 最小測試</title>
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-  <style>
-    body{margin:0;font-family:system-ui;background:#0b1320;color:#fff;padding:24px}
-    .card{max-width:720px;margin:40px auto;background:#151f2c;border:1px solid #ffffff18;border-radius:18px;padding:20px}
-    button{padding:12px 16px;border:0;border-radius:12px;font-weight:800}
-    pre{white-space:pre-wrap;word-break:break-word;background:#0a111a;padding:14px;border-radius:12px;color:#dce8f3}
-  </style>
-</head>
-<body>
-  <div class="card">
-    <h1>THE HEROES</h1>
-    <h2>LIFF 最小測試</h2>
-    <p>只測試 liff.init，不載入 React、GAS 或遊戲程式。</p>
-    <button onclick="runTest()">開始測試</button>
-    <pre id="out">尚未測試</pre>
-  </div>
-
-<script>
-const LIFF_ID = '2011020275-Vs0MIBis';
-
-async function runTest(){
-  const out = document.getElementById('out');
-  const log = (s)=> out.textContent += '\n' + s;
-  out.textContent = '';
-  log('URL: ' + location.href);
-  log('LIFF_ID: ' + LIFF_ID);
-  log('SDK loaded: ' + !!window.liff);
-
-  try{
-    await liff.init({ liffId: LIFF_ID });
-    log('✅ liff.init 成功');
-    log('isLoggedIn: ' + liff.isLoggedIn());
-
-    if(!liff.isLoggedIn()){
-      log('尚未登入，請從 LIFF URL 進入。');
-      return;
-    }
-
-    const profile = await liff.getProfile();
-    log('displayName: ' + profile.displayName);
-    log('userId: ' + profile.userId);
-  }catch(e){
-    log('❌ liff.init 失敗');
-    log('message: ' + (e && e.message ? e.message : String(e)));
-    log('code: ' + (e && e.code ? e.code : ''));
-    try{
-      log('raw: ' + JSON.stringify(e, Object.getOwnPropertyNames(e)));
-    }catch(_){}
-  }
-}
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b1320" />
+    <title>THE HEROES：勇者之境</title>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script type="module" crossorigin src="/The-Heroes/assets/index-IhW-RgjD.js"></script>
+    <link rel="stylesheet" crossorigin href="/The-Heroes/assets/index-queZcl-S.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
