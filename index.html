@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>THE HEROES：勇者之境</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+</head>
+<body>
+  <div id="app">
+    <section id="loadingScreen" class="screen center">
+      <div class="logo">THE HEROES</div>
+      <div class="sub">勇者之境</div>
+      <p id="loadingText">正在連接 LINE...</p>
+    </section>
+
+    <section id="homeScreen" class="screen hidden">
+      <header class="topbar">
+        <div class="profile">
+          <img id="avatar" class="avatar" alt="">
+          <div>
+            <div id="displayName" class="name">勇者</div>
+            <div id="levelText" class="level">Lv.1</div>
+            <div class="expbar"><div id="expFill" class="expfill"></div></div>
+          </div>
+        </div>
+        <div class="money">
+          <div>🪙 <span id="gold">100</span></div>
+          <div>💎 <span id="gems">10</span></div>
+        </div>
+      </header>
+
+      <main class="home">
+        <div class="hero-card">
+          <div class="hero-emoji">🧙‍♂️</div>
+          <h1>THE HEROES</h1>
+          <h2>勇者之境</h2>
+          <p>每一次冒險，都將成為傳說。</p>
+          <button id="startAdventureBtn" class="primary">⚔️ 開始冒險</button>
+        </div>
+
+        <div class="menu-grid">
+          <button class="menu-btn" disabled>👤 角色</button>
+          <button class="menu-btn" disabled>🎒 背包</button>
+          <button class="menu-btn" disabled>📜 任務</button>
+          <button class="menu-btn" disabled>🎁 信箱</button>
+        </div>
+      </main>
+    </section>
+
+    <section id="battleScreen" class="screen hidden">
+      <header class="topbar">
+        <div class="profile">
+          <img id="battleAvatar" class="avatar" alt="">
+          <div>
+            <div id="battleName" class="name">勇者</div>
+            <div id="battleLevel" class="level">Lv.1</div>
+          </div>
+        </div>
+        <button id="backHomeBtn" class="ghost">返回</button>
+      </header>
+
+      <div class="stage">🌲 翡翠森林 <span id="stageText">1-1</span></div>
+
+      <div class="battle-zone">
+        <div id="monster" class="monster">🟢</div>
+        <div id="monsterName" class="monster-name">森林史萊姆</div>
+        <div class="hpbar"><div id="monsterHpFill" class="hpfill"></div></div>
+        <div id="monsterHpText" class="hptext">55 / 55</div>
+
+        <div id="damageText" class="damage">-18</div>
+        <div id="hero" class="battle-hero">🧙‍♂️</div>
+      </div>
+
+      <div class="skills">
+        <button onclick="skillAttack(1)">⚔️<span>普通攻擊</span></button>
+        <button onclick="skillAttack(1.7)">🔥<span>火焰斬</span></button>
+        <button onclick="skillAttack(2.2)">⚡<span>雷擊</span></button>
+        <button onclick="skillAttack(3)">🌪️<span>旋風斬</span></button>
+      </div>
+
+      <button id="autoBtn" class="auto on">● 自動戰鬥 ON</button>
+    </section>
+
+    <section id="errorScreen" class="screen center hidden">
+      <h2>無法進入勇者之境</h2>
+      <pre id="errorText"></pre>
+      <button class="primary" onclick="location.reload()">重新載入</button>
+    </section>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
