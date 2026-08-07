@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LIFF 診斷</title>
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<style>
+body{font-family:system-ui;background:#111827;color:#fff;padding:20px}
+pre{background:#1f2937;padding:12px;border-radius:8px;white-space:pre-wrap}
+button{padding:10px 16px}
+</style></head><body>
+<h2>THE HEROES - LIFF 診斷工具</h2>
+<button onclick="run()">開始診斷</button>
+<pre id="out">按下開始診斷</pre>
+<script>
+const LIFF_ID="2011020275-gl2HOIoL";
+async function run(){
+ const o=document.getElementById('out');
+ function log(t){o.textContent+= "\n"+t;}
+ o.textContent="";
+ log("URL: "+location.href);
+ log("LIFF_ID: "+LIFF_ID);
+ try{
+   await liff.init({liffId:LIFF_ID});
+   log("✅ liff.init 成功");
+   log("isLoggedIn="+liff.isLoggedIn());
+   if(!liff.isLoggedIn()){
+      log("呼叫 login...");
+      liff.login({redirectUri:location.href});
+      return;
+   }
+   const p=await liff.getProfile();
+   log("displayName="+p.displayName);
+   log("userId="+p.userId);
+ }catch(e){
+   log("❌ ERROR");
+   log("message="+e.message);
+   log("code="+(e.code||""));
+   log("raw="+JSON.stringify(e,Object.getOwnPropertyNames(e)));
+ }
+}
+</script></body></html>
