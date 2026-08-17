@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 
-export const SUPABASE_URL = 'https://ubetkenmviaqqpkooong.supabase.co'
-export const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_n4YU-hpafHNMifx_yXyjbw_LC2J1OBb'
+export const SUPABASE_URL = 'https://vvjwvneoifmodpxsprcc.supabase.co'
+export const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_7ptXim1QKAg83FAFkyHNcA_yYW7eR2Z'
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
   auth: {
@@ -12,7 +12,7 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
 })
 
 export async function diagnoseSupabase(){
-  const report={url:SUPABASE_URL,projectRef:'ubetkenmviaqqpkooong',api:false,auth:false,key:false,detail:''}
+  const report={url:SUPABASE_URL,projectRef:'vvjwvneoifmodpxsprcc',api:false,auth:false,key:false,detail:''}
   try{
     const api=await fetch(`${SUPABASE_URL}/rest/v1/`,{headers:{apikey:SUPABASE_PUBLISHABLE_KEY,Authorization:`Bearer ${SUPABASE_PUBLISHABLE_KEY}`}})
     report.api=api.ok || api.status===404
