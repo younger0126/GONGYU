@@ -2,6 +2,7 @@ import React,{useEffect,useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import {AlertCircle,CheckCircle2,X} from 'lucide-react';
 import App from './AppCloud.jsx';
+import MemberCenterTest from './MemberCenterTest.jsx';
 import './styles.css';
 
 const translateMessage=(raw)=>{
@@ -48,5 +49,5 @@ function AlertHost(){
   </div>
 }
 
-function Root(){return <><App/><AlertHost/></>}
+function Root(){return <><App/><MemberCenterTest/><AlertHost/></>}
 createRoot(document.getElementById('root')).render(<Root/>);
